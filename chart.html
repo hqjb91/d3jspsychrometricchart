@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://d3js.org/d3.v4.min.js"></script>
+        <script src="datatp.js"></script>
+        <script src="psychchartscript.js"></script>
+        <script src="psychcalc.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+
+        <style>
+            .rhline {
+                fill: none;
+                stroke:navy;
+                stroke-width:1px;
+                }
+
+            .csvline {
+                fill: none;
+                stroke:green;
+                stroke-width:1px;
+                }
+
+            .wbtline {
+                fill: none;
+                stroke:red;
+                stroke-width:1px;
+                }
+
+            .entline {
+                fill: none;
+                stroke:grey;
+                stroke-width:1px;
+                }
+
+            label{
+                display: inline-block;
+                float: left;
+                clear: left;
+                width: 200px;
+                text-align: left;
+                font-size: 10px;
+                font-weight: normal;
+                }
+            input {
+                display: inline-block;
+                float: left;
+                width: 100px;
+                font-size: 10px;
+            }
+
+            .btn{
+                display: inline-block;
+                float:left;
+                clear: left;
+                margin-top: 10px;
+                font-size: 10px;
+                padding: 3px;
+            }
+
+            .row .withborder{
+                border: 1px solid grey ;
+            }
+                
+        </style>
+    </head>
+
+    <body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" id="psychro"><p>Pyschrometric Chart (SI Units)</p></div>
+                <div class="col-md-6">
+                    <div class="row withborder">
+                        <div class="col-md-6">
+                        
+                            <label>Inputs : </label>
+
+                            <label>Dry Bulb Temp (°C) </label> <input type="text" id="drybulb">
+
+                            <label>Wet Bulb Temp (°C) </label> <input type="text" id="wetbulb" onChange="setWetBulb()">
+
+                            <label>Relative Humidity (%) </label> <input type="text" id="relhumidity" onChange="setRelHumidity()">
+
+                            <label>Dew Point Temp (°C) </label> <input type="text" id="dewpoint" onChange="setDewPoint()">  
+
+                            <label>Humidity Ratio (kg/kg) </label> <input type="text" id="humratio" onChange="setHumRatio()"> 
+
+                            <button type="button" class="btn btn-default" onclick="psychCalc()"> Calculate </button>
+                            <button type="button" class="btn btn-default" onclick="clearCalc()" style="margin-bottom:20px;"> Reset </button>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                        <label>Results : </label>
+
+                            <label>Enthalpy (kJ/kg) </label> <input type="text" id="enthalpy"> 
+
+                            <label>Density (kg/m3) </label> <input type="text" id="density"> 
+
+                            <label>Partial Vapor Pressure (Pa) </label><input type="text" id="pvp">
+
+                            <label>Specific Volume (m3/kg) </label> <input type="text" id="specvol">
+
+                            <label>Specific Vapor Pressure (Pa) </label> <input type="text" id="svp" style="margin-bottom:20px;"> 
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+          
+    </body>
+</html>
